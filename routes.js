@@ -3,6 +3,7 @@ const volunteerSignUp = require("./auth/signup").volunteerSignUp
 const organizationSignUp = require("./auth/signup").organizationSignUp
 const Organization = db.Organization
 const Volunteer = db.Volunteer
+const Request = db.Request
 
 module.exports = function(app){
 
@@ -76,5 +77,14 @@ module.exports = function(app){
 		Volunteer.find({borough:req.user.borough}, function(err,volunteers){
 			res.json({volunteers:volunteers})
 		})
+	}),
+
+	app.post("/api/request", function(req,res){
+		new Request({
+			req_id: req.body.id,
+			level: req.body.level,
+			created_at: new Date()
+		})
 	})
+	
 }

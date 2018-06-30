@@ -5,7 +5,8 @@ const volunteer = new mongoose.Schema({
 	last_name: String,
 	password: String,
 	email: String,
-	borough: String
+	borough: String,
+	created_at: Date
 })
 
 const organization = new mongoose.Schema({
@@ -13,10 +14,20 @@ const organization = new mongoose.Schema({
 	password: String,
 	email: String,
 	borough: String,
-	events: []
+	events: [],
+	created_at: Date
+})
+
+const request = new mongoose.Schema({
+	req_id: String,
+	level: String,
+	org_responded: {type: String, default: "NONE"},
+	response: String,
+	created_at: Date
 })
 
 module.exports = {
 	Volunteer : mongoose.model("volunteer",volunteer),
-	organization : mongoose.model("organization", organization)
+	Organization : mongoose.model("organization", organization),
+	Request : mongoose.model("request", request)
 }
