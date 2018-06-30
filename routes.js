@@ -6,10 +6,13 @@ const Volunteer = db.Volunteer
 const Request = db.Request
 
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
+
 module.exports = function(app,passport){
 
-	app.post('/sms', (req, res) => {
+	app.post('/sms', function(req, res){
   		const twiml = new MessagingResponse();
+
+  		console.log(req.body.Body)
 
  	 	twiml.message('The Robots are coming! Head for the hills!');
 
