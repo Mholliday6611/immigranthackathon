@@ -1,3 +1,5 @@
+require ('dotenv').load();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const passport = require("passport");
@@ -14,4 +16,5 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.listen(process.env.PORT || 8080)
+console.log(process.env.token)
 mongoose.connect("mongodb://localhost/immigrant")
