@@ -1,10 +1,12 @@
-import express from "express";
-import bodyParser from "body-parser";
-import passport from "passport";
-import passportJWT from "passport-jwt";
-import mongoose from "mongoose";
+const express = require("express");
+const bodyParser = require("body-parser");
+const passport = require("passport");
+const passportJWT = require("passport-jwt");
+const mongoose = require("mongoose");
+const routes = require('./routes')
 
 const app = express();
+routes(app)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
