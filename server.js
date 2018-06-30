@@ -17,4 +17,4 @@ app.use(bodyParser.urlencoded({
 
 app.listen(process.env.PORT || 8080)
 console.log(process.env.token)
-mongoose.connect("mongodb://localhost/immigrant")
+//mongoose.connect("mongodb://localhost/immigrant")
