@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const routes = require('./routes')
 
 const app = express();
-routes(app)
+routes(app,passport)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

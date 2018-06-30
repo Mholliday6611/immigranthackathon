@@ -5,7 +5,7 @@ const Organization = db.Organization
 const Volunteer = db.Volunteer
 const Request = db.Request
 
-module.exports = function(app){
+module.exports = function(app,passport){
 
 	app.get("/start",function(req,res){
 		res.json({
@@ -86,5 +86,5 @@ module.exports = function(app){
 			created_at: new Date()
 		})
 	})
-	
+
 }
