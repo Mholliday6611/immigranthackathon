@@ -12,10 +12,11 @@ module.exports = function(app,passport){
 	app.post('/sms', function(req, res){
   		const twiml = new MessagingResponse();
 
-  		console.log(req.body.Body)
-
- 	 	twiml.message('The Robots are coming! Head for the hills!');
-
+  	
+ 		if(req.body.Body == "help"){twiml.message('Select a Language; Text 1 for English, 2 for Spanish')}
+		else if(req.body.Body == "1"){twiml.message('If this is an Emergency text Emergency, Else text general')}
+		else if(req.body.Body == "Emergency"){twiml.message('Text Food, Legal,Medical or Other') }
+		
  	 	res.writeHead(200, {'Content-Type': 'text/xml'});
  	 	res.end(twiml.toString());
 	}),
