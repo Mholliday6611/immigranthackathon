@@ -16,6 +16,6 @@ app.use(bodyParser.urlencoded({
 
 routes(app,passport)
 
-app.listen(process.env.PORT || 8080)
+app.listen(process.env.PORT || 8000)
 console.log(process.env.token)
 //mongoose.connect("mongodb://localhost/immigrant")

@@ -18,10 +18,20 @@ const organization = new mongoose.Schema({
 	created_at: Date
 })
 
+const event = new mongoose.Schema({
+	address: String,
+	org: String,
+	title: String,
+	description: String,
+	created_at: Date
+})
+
 const request = new mongoose.Schema({
 	req_id: String,
 	level: String,
+	location: String,
 	org_responded: {type: String, default: "NONE"},
+	request: String,
 	response: String,
 	created_at: Date
 })
@@ -29,5 +39,6 @@ const request = new mongoose.Schema({
 module.exports = {
 	Volunteer : mongoose.model("volunteer",volunteer),
 	Organization : mongoose.model("organization", organization),
-	Request : mongoose.model("request", request)
+	Request : mongoose.model("request", request),
+	Event : mongoose.model("event", event)
 }
